@@ -22,6 +22,7 @@ await cp(src, dst, {
 
 const files = [
   "Cargo.toml",
+  "Dockerfile",
   "package.json",
 ];
 

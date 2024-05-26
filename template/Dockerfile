@@ -12,8 +12,8 @@ FROM gcr.io/distroless/cc-debian12 AS runner
 
 WORKDIR /app
 
-COPY --from=builder /app/target/release/htmx-csr /app/htmx-csr
+COPY --from=builder /app/target/release/PROJECT_NAME /app/PROJECT_NAME
 COPY --from=builder /app/assets /app/assets
 COPY --from=builder /app/public /app/public
 
-CMD ["/app/htmx-csr"]
+CMD ["/app/PROJECT_NAME"]
