@@ -2,7 +2,7 @@ use std::fs::read;
 
 use actix_web::{get, HttpRequest, HttpResponse};
 
-use crate::functions::{create_etag_response, get_file_mime};
+use crate::functions;
 
 #[get("/{filename:.*}")]
 pub async fn handle(req: HttpRequest) -> HttpResponse {
@@ -12,7 +12,7 @@ pub async fn handle(req: HttpRequest) -> HttpResponse {
         return HttpResponse::NotFound().finish();
     };
 
-    let mime = get_file_mime(&file_path);
+    let mime = functions::get_file_mime(&file_path);
 
-    return create_etag_response(&req, mime, buffer);
+    return functions::create_etag_response(&req, mime, buffer);
 }
