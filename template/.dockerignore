@@ -1,0 +1,12 @@
+.cache
+.dockerignore
+.env
+.env.example
+.git
+.gitignore
+.vscode
+dist
+Dockerfile
+node_modules
+README.md
+target

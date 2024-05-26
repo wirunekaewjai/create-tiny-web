@@ -1,0 +1,21 @@
+{
+  "name": "PROJECT_NAME",
+  "version": "0.0.1",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun src/bin/dev.ts",
+    "deploy": "bun run build && fly deploy",
+    "build": "NODE_ENV=production bun src/bin/build.ts",
+    "start": "cargo run --release"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@wirunekaewjai/ts": "github:wirunekaewjai/ts#64219e96305c70e85ce733fa7473c93fd2ac1293",
+    "@wirunekaewjai/tiny-tsx": "github:wirunekaewjai/tiny-tsx#6388cbc838f08d026c6db1370d0780961ce52fe9",
+    "tailwindcss": "^3.4.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

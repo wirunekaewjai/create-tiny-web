@@ -1,0 +1,19 @@
+[package]
+name = "PROJECT_NAME"
+version = "0.0.1"
+edition = "2021"
+
+[[bin]]
+name = "PROJECT_NAME"
+path = "src/server/main.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-files = "0.6.5"
+actix-web = "4.5.1"
+mime = "0.3.17"
+serde = { version = "1.0.197", features = ["derive"] }
+serde_json = "1.0.115"
+sha2 = "0.10.8"
+tiny-tsx = { git = "https://github.com/wirunekaewjai/tiny-tsx.git", rev = "6388cbc838f08d026c6db1370d0780961ce52fe9" }
