@@ -1,15 +1,3 @@
-# create-tiny-web
-
-To install dependencies:
-
-```bash
-bun install
 ```
-
-To run:
-
-```bash
-bun run index.ts
+bunx github:wirunekaewjai/create-tiny-web#b637b6fc74dd680f1d4c97a930d5ee4ace08e0bd TARGET_DIR PROJECT_NAME
 ```
-
-This project was created using `bun init` in bun v1.1.4. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.

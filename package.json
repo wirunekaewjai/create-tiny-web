@@ -1,5 +1,6 @@
 {
   "name": "create-tiny-web",
+  "version": "0.1.0",
   "module": "index.ts",
   "bin": "index.ts",
   "type": "module",
