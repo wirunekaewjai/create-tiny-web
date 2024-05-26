@@ -1,6 +1,7 @@
 {
   "name": "create-tiny-web",
   "module": "index.ts",
+  "bin": "index.ts",
   "type": "module",
   "devDependencies": {
     "@types/bun": "latest"
