@@ -2,7 +2,7 @@ use actix_web::{get, web, HttpRequest, HttpResponse};
 use mime::TEXT_HTML;
 use serde::Deserialize;
 
-use crate::{functions, views};
+use crate::views;
 
 #[derive(Deserialize)]
 struct CounterQuery {
@@ -20,5 +20,5 @@ pub async fn handle(req: HttpRequest, query: web::Query<CounterQuery>) -> HttpRe
 
     let html = views::doc("Counter", items);
 
-    return functions::create_etag_response(&req, TEXT_HTML, html.into_bytes());
+    return rs::create_etag_response(&req, TEXT_HTML, html.into_bytes());
 }

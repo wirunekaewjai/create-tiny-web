@@ -2,8 +2,6 @@ use std::fs::read;
 
 use actix_web::{get, HttpRequest, HttpResponse};
 
-use crate::functions;
-
 #[get("/{filename:.*}")]
 pub async fn handle(req: HttpRequest) -> HttpResponse {
     let file_path = format!("{}{}", "public", req.path());
@@ -12,7 +10,7 @@ pub async fn handle(req: HttpRequest) -> HttpResponse {
         return HttpResponse::NotFound().finish();
     };
 
-    let mime = functions::get_file_mime(&file_path);
+    let mime = rs::get_file_mime(&file_path);
 
-    return functions::create_etag_response(&req, mime, buffer);
+    return rs::create_etag_response(&req, mime, buffer);
 }

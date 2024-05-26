@@ -1,12 +1,10 @@
 use html_to_string_macro::html;
 use serde_json::json;
 
-use crate::functions;
-
 pub fn counter(count: i32) -> String {
     let dec = count - 1;
     let inc = count + 1;
-    let vals = functions::escape_quot(&json!({ "count": dec }));
+    let vals = rs::html::escape_quot(&json!({ "count": dec }));
 
     return html!(
         <div
