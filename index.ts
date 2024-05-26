@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env bun
 import { cp } from "node:fs/promises";
 import path from "node:path";
 
