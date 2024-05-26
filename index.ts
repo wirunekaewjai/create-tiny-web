@@ -9,7 +9,7 @@ if (!dst) {
   throw "Please provide destination";
 }
 
-const projectName = path.join(dst, "test.ts").split("/").pop()?.toLowerCase();
+const projectName = path.dirname(path.join(dst, "test.ts")).split("/").pop()?.toLowerCase();
 
 if (!projectName) {
   throw "Unable to generate project name";
