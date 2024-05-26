@@ -1,25 +1,6 @@
-import { parse } from "@wirunekaewjai/tiny-tsx/parser";
 import { sequentialWatch } from "@wirunekaewjai/ts/sequential-watch";
 import { $, type Subprocess } from "bun";
 import { styleText } from "node:util";
-
-async function buildJsx() {
-  console.log(styleText("blue", "===== build jsx ====="));
-  await parse("views/templates", [
-    {
-      namespace: "$",
-      attachOriginal: true,
-      dir: "src/client/views",
-      ext: ".ts",
-    },
-    {
-      attachOriginal: true,
-      dir: "src/server/views",
-      ext: ".rs",
-    },
-  ]);
-  console.log();
-}
 
 async function buildCss() {
   console.log(styleText("blue", "===== build css ====="));
@@ -50,10 +31,6 @@ async function buildScript() {
 let server: Subprocess | null = null;
 
 await sequentialWatch([
-  {
-    dirs: ["views"],
-    callback: buildJsx,
-  },
   {
     dirs: [
       // define you watch directories

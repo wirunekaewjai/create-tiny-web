@@ -179,5 +179,3 @@ target/
 
 template/bun.lockb
 template/Cargo.lock
-template/src/client/views
-template/src/server/views
