@@ -4,14 +4,21 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "dev": "bun src/bin/dev.ts",
+    "dev:css": "tailwindcss -i ./tailwind.css -o ./assets/style.css --watch",
+    "dev:rs": "cargo watch -w src/server -x 'run'",
+    "dev:ts": "nodemon --watch src/client -e ts,tsx --exec 'bun build src/client/app.ts --outdir assets'",
+    "dev": "concurrently 'bun run dev:rs' 'bun run dev:ts' 'bun run dev:css'",
     "deploy": "bun run build && fly deploy",
-    "build": "NODE_ENV=production bun src/bin/build.ts",
+    "build:css": "tailwindcss -i ./tailwind.css -o ./assets/style.css --minify",
+    "build:ts": "bun build src/client/app.ts --outdir assets --minify",
+    "build": "bun run build:css && bun run build:ts",
     "start": "cargo run --release"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "@wirunekaewjai/ts": "github:wirunekaewjai/ts#7c31d59538691fe029f3957db21dd5ef7a248744",
+    "@wirunekaewjai/ts": "github:wirunekaewjai/ts#v0.1.0",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.2",
     "tailwindcss": "^3.4.3"
   },
   "peerDependencies": {
