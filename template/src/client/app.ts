@@ -1,5 +1,5 @@
-import { hxGet } from "@wirunekaewjai/jetpack";
 import { counter } from "@/client/views/counter";
+import { hxGet } from "@wirunekaewjai/jetpack";
 
 // +/- on client-side
 hxGet((path, query) => {
