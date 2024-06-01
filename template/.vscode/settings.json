@@ -1,25 +1,10 @@
 {
-  "javascript.format.semicolons": "insert",
-  "javascript.preferences.importModuleSpecifier": "non-relative",
-  "javascript.preferences.quoteStyle": "double",
   "typescript.format.semicolons": "insert",
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "typescript.preferences.quoteStyle": "double",
   "rust-analyzer.linkedProjects": [
     "./Cargo.toml"
   ],
-  "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features",
-    "editor.formatOnSave": true,
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features",
-    "editor.formatOnSave": true,
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2
-  },
   "[rust]": {
     "editor.formatOnSave": true,
     "editor.insertSpaces": true,
