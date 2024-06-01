@@ -12,7 +12,7 @@ pub async fn handle(req: HttpRequest) -> HttpResponse {
         return HttpResponse::NotFound().finish();
     };
 
-    let mime = rs::get_file_mime(&file_path);
+    let mime = jetpack::get_file_mime(&file_path);
 
-    return rs::create_etag_response(&req, mime, buffer);
+    return jetpack::create_etag_response(&req, mime, buffer);
 }

@@ -1,9 +1,10 @@
-import "@wirunekaewjai/ts/htmx-interceptor/prelude";
-
+import { hxGet } from "@wirunekaewjai/jetpack";
 import { counter } from "@/client/views/counter";
 
 // +/- on client-side
-interceptor.add("/@counter", ({ query }) => {
-  const count = Number(query.count);
-  return counter(count);
+hxGet((path, query) => {
+  if (path === "/@counter") {
+    const count = Number(query.get("count"));
+    return counter(count);
+  }
 });

@@ -7,7 +7,7 @@
     "moduleDetection": "force",
     "allowJs": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "@wirunekaewjai/ts/jsx",
+    "jsxImportSource": "@wirunekaewjai/jetpack/jsx",
 
     // Bundler mode
     "moduleResolution": "bundler",
