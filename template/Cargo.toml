@@ -13,7 +13,7 @@ path = "src/server/main.rs"
 actix-files = "0.6.5"
 actix-web = "4.5.1"
 html-to-string-macro = "0.2.5"
-jetpack = { git = "https://github.com/wirunekaewjai/jetpack.git", rev = "9bbe8e9b81cc8d31eaf0f54f7f84af7302e39d2d" }
+jetpack = { git = "https://github.com/wirunekaewjai/jetpack.git", rev = "f67005e38d0fcb40dcddf4c8a63da6d87d6ef52d" }
 mime = "0.3.17"
 serde = { version = "1.0.197", features = ["derive"] }
 serde_json = "1.0.115"

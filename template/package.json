@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "@wirunekaewjai/jetpack": "github:wirunekaewjai/jetpack#9bbe8e9b81cc8d31eaf0f54f7f84af7302e39d2d",
+    "@wirunekaewjai/jetpack": "github:wirunekaewjai/jetpack#f67005e38d0fcb40dcddf4c8a63da6d87d6ef52d",
     "concurrently": "^8.2.2",
     "nodemon": "^3.1.2",
     "tailwindcss": "^3.4.3"
