@@ -1,11 +1,6 @@
 use html_to_string_macro::html;
-use serde_json::json;
 
 pub fn counter(count: i32) -> String {
-    let dec = count - 1;
-    let inc = count + 1;
-    let vals = jetpack::html::escape_quot(&json!({ "count": dec }));
-
     return html!(
         <div
             class="p-2 flex flex-row items-center"
@@ -14,10 +9,9 @@ pub fn counter(count: i32) -> String {
         >
             <button
                 class="w-8 h-8 bg-red-600 text-white rounded-md shadow-md"
-                hx-get="/@counter"
-                hx-vals={vals}
+                hx-get={format!("/@counter?count={}", count - 1)}
                 hx-trigger="click"
-                hx-replace-url={format!("/?count={}", dec)}
+                hx-replace-url={format!("/?count={}", count - 1)}
             >
                 {"-"}
             </button>
@@ -26,9 +20,9 @@ pub fn counter(count: i32) -> String {
             </div>
             <button
                 class="w-8 h-8 bg-blue-600 text-white rounded-md shadow-md"
-                hx-get={format!("/@counter?count={}", inc)}
+                hx-get={format!("/@counter?count={}", count + 1)}
                 hx-trigger="click"
-                hx-replace-url={format!("/?count={}", inc)}
+                hx-replace-url={format!("/?count={}", count + 1)}
             >
                 {"+"}
             </button>
