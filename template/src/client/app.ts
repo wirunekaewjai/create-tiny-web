@@ -1,10 +1,42 @@
 import { counter } from "@/client/views/counter";
-import { onHxGet } from "@wirunekaewjai/jetpack";
+import { hxResponse } from "@wirunekaewjai/jetpack";
 
-// +/- on client-side
-onHxGet((path, query) => {
-  if (path === "/@counter") {
-    const count = Number(query.get("count"));
-    return counter(count);
+htmx.on("htmx:afterSwap", (e) => {
+  const event = e as CustomEvent;
+  const detail = event.detail as {
+    elt: HTMLElement;
+    pathInfo: {
+      requestPath: string;
+    };
+  };
+
+  const [pathname] = detail.pathInfo.requestPath.split("?");
+
+  // bind icon name in svg element for preserve svg
+  if (pathname.startsWith("/icons/")) {
+    return detail.elt.setAttribute("name", pathname.split("/")[2]);
+  }
+});
+
+htmx.on("htmx:beforeRequest", (e) => {
+  const event = e as CustomEvent;
+  const conf = event.detail.requestConfig as {
+    path: string;
+    parameters: Record<string, any>;
+  };
+
+  const [pathname, search] = conf.path.split("?");
+
+  if (pathname === "/@count") {
+    const hxVals = conf.parameters;
+    const query = new URLSearchParams(search);
+
+    const name = query.get("name") ?? hxVals.name;
+    const value = Number(query.get("value") ?? hxVals.value);
+
+    return hxResponse(event, {
+      body: counter(name, value),
+      url: conf.path,
+    });
   }
 });

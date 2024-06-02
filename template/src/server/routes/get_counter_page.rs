@@ -1,21 +1,16 @@
-use actix_web::{get, web, HttpRequest, HttpResponse};
+use actix_web::{get, HttpRequest, HttpResponse};
 use mime::TEXT_HTML;
-use serde::Deserialize;
 
 use crate::views;
 
-#[derive(Deserialize)]
-struct CounterQuery {
-    count: Option<i32>,
-}
-
 #[get("/")]
-pub async fn handle(req: HttpRequest, query: web::Query<CounterQuery>) -> HttpResponse {
-    let count = query.count.unwrap_or(0);
+pub async fn handle(req: HttpRequest) -> HttpResponse {
     let items = vec![
         //
         views::heading("Counter"),
-        views::counter(count),
+        views::counter("a"),
+        views::counter("b"),
+        views::counter("c"),
     ];
 
     let html = views::doc("Counter", items);
