@@ -1,3 +1,3 @@
 ```
-bunx github:wirunekaewjai/create-tiny-web#e68bf59e8d1c3f11f8b487748d5b81495341cf05 TARGET_DIR PROJECT_NAME
+bunx github:wirunekaewjai/create-tiny-web#8ef5d4bc2e65becc5c120becc1b636489e24804f TARGET_DIR PROJECT_NAME
 ```
