@@ -19,6 +19,13 @@ pub async fn handle(req: HttpRequest, query: web::Query<CounterQuery>) -> HttpRe
     ];
 
     let html = views::doc("Counter", items);
+    let buffer = html.into_bytes();
 
-    return jetpack::create_etag_response(&req, &TEXT_HTML, html.into_bytes());
+    let mut builder = HttpResponse::Ok();
+
+    builder.content_type(TEXT_HTML);
+
+    jetpack::bind_etag_header(&mut builder, &req, &buffer);
+
+    return builder.body(buffer);
 }

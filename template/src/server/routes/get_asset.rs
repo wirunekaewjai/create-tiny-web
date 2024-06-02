@@ -13,6 +13,11 @@ pub async fn handle(req: HttpRequest) -> HttpResponse {
     };
 
     let mime = jetpack::get_file_mime(&file_path);
+    let mut builder = HttpResponse::Ok();
 
-    return jetpack::create_etag_response(&req, &mime, buffer);
+    builder.content_type(mime);
+
+    jetpack::bind_etag_header(&mut builder, &req, &buffer);
+
+    return builder.body(buffer);
 }
