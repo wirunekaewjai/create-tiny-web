@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "@wirunekaewjai/jetpack": "github:wirunekaewjai/jetpack#aef82d288a010d0ad9e6251e310ae86684439532",
+    "@wirunekaewjai/jetpack": "github:wirunekaewjai/jetpack#ab2401df8ee26c6f4abca6bf1f3aed9927046e10",
     "concurrently": "^8.2.2",
     "htmx.org": "^1.9.12",
     "nodemon": "^3.1.2",
