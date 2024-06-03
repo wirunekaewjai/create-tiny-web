@@ -1,5 +1,5 @@
 import { counter } from "@/client/views/counter";
-import { hxResponse } from "@wirunekaewjai/jetpack";
+import { hxQuery, hxResponse } from "@wirunekaewjai/jetpack";
 
 const onAfterSwap = (e: CustomEvent) => {
   const detail = e.detail as {
@@ -29,14 +29,13 @@ const onBeforeRequest = (e: CustomEvent) => {
   if (pathname === "/@count") {
     e.preventDefault();
 
-    const hxVals = conf.parameters;
-    const query = new URLSearchParams(search);
-
-    const name = query.get("name") ?? hxVals.name;
-    const value = Number(query.get("value") ?? hxVals.value);
+    const query = hxQuery(search, conf.parameters) as {
+      name: string;
+      value: number;
+    };
 
     return hxResponse(xhr, {
-      body: counter(name, value),
+      body: counter(query.name, query.value),
       url: conf.path,
     });
   }
