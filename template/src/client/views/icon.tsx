@@ -8,7 +8,7 @@ export function icon(name: string) {
     return svg.outerHTML;
   }
 
-  const path = `/icons/${name}`;
+  const path = `/icons/${name}?v=1`;
 
   return (
     <svg
