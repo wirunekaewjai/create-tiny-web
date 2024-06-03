@@ -3,7 +3,7 @@ use actix_web::{
     http::header::{CacheControl, CacheDirective, ETAG},
     web, HttpRequest, HttpResponse,
 };
-use jetpack::http::{create_etag, get_is_etag_not_modified};
+use jetpack::functions::http::{create_etag, get_is_etag_not_modified};
 use mime::TEXT_HTML;
 
 use crate::{structs::AppState, views};

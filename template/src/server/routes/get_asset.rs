@@ -8,7 +8,7 @@ use actix_web::{
     },
     web, HttpRequest, HttpResponse,
 };
-use jetpack::http::{create_etag, get_file_mime, get_is_etag_not_modified};
+use jetpack::functions::http::{create_etag, get_file_mime, get_is_etag_not_modified};
 use serde::Deserialize;
 
 use crate::{functions::get_is_same_asset_hash, structs::AppState};

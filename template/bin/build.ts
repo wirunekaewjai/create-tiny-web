@@ -13,4 +13,4 @@ await rm("assets", {
 
 await $`tailwindcss -i ./tailwind.css -o ./assets/style.css --minify`;
 await $`bun build src/client/app.ts --outdir assets --minify --splitting --chunk-naming chunk-[hash].[ext]`;
-await $`bun src/bin/generate-hashmap.ts --minify`;
+await $`bun bin/generate-hashmap.ts --minify`;

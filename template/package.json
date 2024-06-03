@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "deploy": "bun run build && fly deploy",
-    "dev": "bun src/bin/dev.ts",
-    "build": "bun src/bin/build.ts",
+    "dev": "bun bin/dev.ts",
+    "build": "bun bin/build.ts",
     "start": "cargo run --release"
   },
   "peerDependencies": {

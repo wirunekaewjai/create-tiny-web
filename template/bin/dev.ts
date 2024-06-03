@@ -13,7 +13,7 @@ await rm("assets", {
 
 const css = "tailwindcss -i ./tailwind.css -o ./assets/style.css";
 const ts = "bun build src/client/app.ts --outdir assets --splitting --chunk-naming chunk-[hash].[ext]";
-const map = "bun src/bin/generate-hashmap.ts";
+const map = "bun bin/generate-hashmap.ts";
 const rs = "cargo run";
 
 await $`cargo watch -s '${css} && ${ts} && ${map} && ${rs}'`;
