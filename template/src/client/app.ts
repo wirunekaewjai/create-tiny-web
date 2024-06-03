@@ -1,7 +1,8 @@
 import "./prelude";
 
 import { counter } from "@/client/views/counter";
-import { hxQuery, hxResponse } from "@wirunekaewjai/jetpack";
+import { parseHxQuery } from "@jetpack/functions/parse-hx-query";
+import { sendHxResponse } from "@jetpack/functions/send-hx-response";
 
 const onAfterSwap = (e: CustomEvent) => {
   const detail = e.detail as {
@@ -31,12 +32,12 @@ const onBeforeRequest = (e: CustomEvent) => {
   if (pathname === "/@count") {
     e.preventDefault();
 
-    const query = hxQuery(search, conf.parameters) as {
+    const query = parseHxQuery(search, conf.parameters) as {
       name: string;
       value: number;
     };
 
-    return hxResponse(xhr, {
+    return sendHxResponse(xhr, {
       body: counter(query.name, query.value),
       url: conf.path,
     });

@@ -17,7 +17,6 @@
     "tailwindcss": "^3.4.3"
   },
   "dependencies": {
-    "@wirunekaewjai/jetpack": "github:wirunekaewjai/jetpack#ddad0b3e4fc6fdf6651f6c8db72c86467b33aa70",
     "htmx.org": "^1.9.12"
   }
 }

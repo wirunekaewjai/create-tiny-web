@@ -7,13 +7,16 @@ edition = "2021"
 name = "PROJECT_NAME"
 path = "src/server/main.rs"
 
+[lib]
+name = "jetpack"
+path = "jetpack/rust/lib.rs"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 actix-files = "0.6.5"
 actix-web = "4.5.1"
 html-to-string-macro = "0.2.5"
-jetpack = { git = "https://github.com/wirunekaewjai/jetpack.git", rev = "ddad0b3e4fc6fdf6651f6c8db72c86467b33aa70" }
 mime = "0.3.17"
 regex = "1.10.4"
 serde = { version = "1.0.197", features = ["derive"] }
