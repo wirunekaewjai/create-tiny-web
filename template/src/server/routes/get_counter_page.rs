@@ -1,24 +1,24 @@
 use actix_web::{
     get,
     http::header::{CacheControl, CacheDirective, ETAG},
-    HttpRequest, HttpResponse,
+    web, HttpRequest, HttpResponse,
 };
 use jetpack::http::{create_etag, get_is_etag_not_modified};
 use mime::TEXT_HTML;
 
-use crate::views;
+use crate::{structs::AppState, views};
 
 #[get("/")]
-pub async fn handle(req: HttpRequest) -> HttpResponse {
+pub async fn handle(req: HttpRequest, state: web::Data<AppState>) -> HttpResponse {
     let items = vec![
         //
         views::heading("Counter"),
-        views::counter("a"),
-        views::counter("b"),
-        views::counter("c"),
+        views::counter(&state.hashmap, "a"),
+        views::counter(&state.hashmap, "b"),
+        views::counter(&state.hashmap, "c"),
     ];
 
-    let html = views::doc("Counter", items);
+    let html = views::doc(&state.hashmap, "Counter", items);
     let buffer = html.into_bytes();
 
     let headers = req.headers();

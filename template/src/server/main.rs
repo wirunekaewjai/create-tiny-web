@@ -1,7 +1,11 @@
+pub mod functions;
 pub mod routes;
+pub mod structs;
 pub mod views;
 
-use actix_web::{App, HttpServer};
+use actix_web::{web, App, HttpServer};
+use functions::get_asset_hashmap;
+use structs::AppState;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -13,10 +17,13 @@ async fn main() -> std::io::Result<()> {
     println!();
 
     HttpServer::new(move || {
+        let hashmap = get_asset_hashmap();
+        let app_state = AppState { hashmap };
+
         App::new()
-            .service(routes::get_asset::handle)
+            .app_data(web::Data::new(app_state))
             .service(routes::get_counter_page::handle)
-            .service(routes::get_public::handle)
+            .service(routes::get_asset::handle)
     })
     .bind((hostname, port))?
     .run()

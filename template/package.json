@@ -4,25 +4,20 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "dev:css": "tailwindcss -i ./tailwind.css -o ./assets/style.css --watch",
-    "dev:rs": "cargo watch -w src/server -x 'run'",
-    "dev:ts": "nodemon --watch src/client -e ts,tsx --exec 'bun build src/client/app.ts --outdir assets'",
-    "dev": "concurrently 'bun run dev:rs' 'bun run dev:ts' 'bun run dev:css'",
     "deploy": "bun run build && fly deploy",
-    "build:css": "tailwindcss -i ./tailwind.css -o ./assets/style.css --minify",
-    "build:ts": "bun build src/client/app.ts --outdir assets --minify",
-    "build": "bun run build:css && bun run build:ts",
+    "dev": "bun src/bin/dev.ts",
+    "build": "bun src/bin/build.ts",
     "start": "cargo run --release"
-  },
-  "devDependencies": {
-    "@types/bun": "latest",
-    "@wirunekaewjai/jetpack": "github:wirunekaewjai/jetpack#ddad0b3e4fc6fdf6651f6c8db72c86467b33aa70",
-    "concurrently": "^8.2.2",
-    "htmx.org": "^1.9.12",
-    "nodemon": "^3.1.2",
-    "tailwindcss": "^3.4.3"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "tailwindcss": "^3.4.3"
+  },
+  "dependencies": {
+    "@wirunekaewjai/jetpack": "github:wirunekaewjai/jetpack#ddad0b3e4fc6fdf6651f6c8db72c86467b33aa70",
+    "htmx.org": "^1.9.12"
   }
 }

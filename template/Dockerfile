@@ -15,5 +15,6 @@ WORKDIR /app
 COPY --from=builder /app/target/release/PROJECT_NAME /app/PROJECT_NAME
 COPY --from=builder /app/assets /app/assets
 COPY --from=builder /app/public /app/public
+COPY --from=builder /app/.cache /app/.cache
 
 CMD ["/app/PROJECT_NAME"]

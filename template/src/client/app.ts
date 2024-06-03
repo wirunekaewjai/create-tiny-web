@@ -1,3 +1,5 @@
+import "./prelude";
+
 import { counter } from "@/client/views/counter";
 import { hxQuery, hxResponse } from "@wirunekaewjai/jetpack";
 
@@ -13,7 +15,7 @@ const onAfterSwap = (e: CustomEvent) => {
 
   // bind icon name in svg element for preserve svg
   if (pathname.startsWith("/icons/")) {
-    return detail.elt.setAttribute("name", pathname.split("/")[2]);
+    return detail.elt.setAttribute("name", pathname.split(".")[0].split("/")[2]);
   }
 };
 

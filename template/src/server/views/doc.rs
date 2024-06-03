@@ -1,6 +1,9 @@
 use html_to_string_macro::html;
+use serde_json::Value;
 
-pub fn doc(title: &str, children: Vec<String>) -> String {
+use crate::functions::get_asset_path;
+
+pub fn doc(map: &Value, title: &str, children: Vec<String>) -> String {
     return html!(
         <>
             {"<!DOCTYPE html>"}
@@ -10,12 +13,11 @@ pub fn doc(title: &str, children: Vec<String>) -> String {
                     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
                     <link rel="icon" sizes="any" type="image/x-icon" href="/favicon.ico" />
-                    <link rel="stylesheet" href="/assets/style.css" />
+                    <link rel="stylesheet" href={get_asset_path(map, "/assets/style.css")} />
 
                     <title>{title}</title>
 
-                    <script defer src="https://unpkg.com/htmx.org@1.9.12/dist/htmx.min.js"></script>
-                    <script defer type="module" src="/assets/app.js"></script>
+                    <script defer type="module" src={get_asset_path(map, "/assets/app.js")}></script>
                 </head>
                 <body>
                     {children.join("")}

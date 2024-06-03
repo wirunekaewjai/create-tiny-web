@@ -1,13 +1,18 @@
 use html_to_string_macro::html;
+use serde_json::Value;
 
-pub fn icon(name: &str) -> String {
-    let path = format!("/icons/{name}.svg?v=1");
+use crate::functions::get_asset_path;
+
+pub fn icon(map: &Value, name: &str) -> String {
+    let path = get_asset_path(map, &format!("/icons/{name}.svg"));
 
     return html!(
         <svg
-            hx-get={path}
+            name={name}
+            hx-get={&path}
             hx-trigger="load"
             hx-swap="outerHTML"
+            viewBox="0 0 1 1"
         />
     );
 }
