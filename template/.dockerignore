@@ -1,4 +1,3 @@
-.cache
 .dockerignore
 .env
 .env.example
