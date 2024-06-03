@@ -1,9 +1,9 @@
 # INIT
 ```
-bunx github:wirunekaewjai/create-tiny-web#8c9a56563254c0caeccfe21d5f9d57ec6dcc281a TARGET_DIR PROJECT_NAME
+bunx github:wirunekaewjai/create-tiny-web#8145d08409983f056360c8e2c2010958c4700139 TARGET_DIR PROJECT_NAME
 ```
 
 # SYNC only jetpack
 ```
-bunx github:wirunekaewjai/create-tiny-web#8c9a56563254c0caeccfe21d5f9d57ec6dcc281a TARGET_DIR --sync-jetpack
+bunx github:wirunekaewjai/create-tiny-web#8145d08409983f056360c8e2c2010958c4700139 TARGET_DIR --sync-jetpack
 ```
